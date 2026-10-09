@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sayt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #fff;
+            color: #0f1419;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .sahifa {
+            width: 1260px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .chap {
+            width: 250px;
+            padding: 8px 12px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .qush {
+            width: 34px;
+            margin: 8px 12px 16px;
+        }
+
+        .menu a {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: #0f1419;
+            text-decoration: none;
+            font-size: 19px;
+            padding: 12px;
+            border-radius: 30px;
+        }
+
+        .menu a:hover {
+            background: #e7e7e8;
+        }
+
+        .menu a.aktiv {
+            font-weight: bold;
+        }
+
+        .menu i {
+            width: 24px;
+            font-size: 20px;
+        }
+
+        .tweet-btn {
+            width: 90%;
+            margin: 16px 8px;
+            background: #1d9bf0;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            height: 50px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .past-profil {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            padding: 10px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .past-profil:hover {
+            background: #e7e7e8;
+        }
+
+        .past-profil img,
+        .ava,
+        .tvit-ava,
+        .odam img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .past-profil b,
+        .past-profil span {
+            display: block;
+        }
+
+        .past-profil span,
+        .kulrang {
+            color: #536471;
+            font-size: 14px;
+        }
+
+        .orta {
+            width: 600px;
+            border-left: 1px solid #eff3f4;
+            border-right: 1px solid #eff3f4;
+            min-height: 100vh;
+        }
+
+        .tepasi {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 8px 14px;
+            border-bottom: 1px solid #eff3f4;
+            position: sticky;
+            top: 0;
+            background: #fff;
+        }
+
+        .orqaga {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f1419;
+            text-decoration: none;
+        }
+
+        .orqaga:hover {
+            background: #e7e7e8;
+        }
+
+        .tepasi h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .banner {
+            height: 200px;
+            background: #04374c;
+            overflow: hidden;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .kollaj {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+            margin-bottom: 16px;
+        }
+
+        .profil-qator {
+            padding: 12px 16px 0;
+            position: relative;
+        }
+
+        .katta-ava {
+            width: 134px;
+            height: 134px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            object-fit: cover;
+            margin-top: -70px;
+            background: #ccc;
+        }
+
+        .edit {
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            border: 1px solid #cfd9de;
+            background: #fff;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .ism {
+            margin: 12px 0 0;
+            font-size: 20px;
+        }
+
+        .nick {
+            margin: 2px 0 12px;
+            color: #536471;
+        }
+
+        .bio {
+            margin: 0 0 10px;
+        }
+
+        .bio a,
+        .meta a {
+            color: #1d9bf0;
+            text-decoration: none;
+        }
+
+        .meta {
+            color: #536471;
+            font-size: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .meta i {
+            margin-right: 4px;
+        }
+
+        .stat {
+            margin: 14px 0;
+            font-size: 15px;
+        }
+
+        .stat b {
+            margin-right: 4px;
+        }
+
+        .stat span {
+            color: #536471;
+            margin-right: 16px;
+        }
+
+        .tablar {
+            display: flex;
+            border-bottom: 1px solid #eff3f4;
+        }
+
+        .tablar a {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            color: #536471;
+            padding: 14px 0;
+            font-weight: bold;
+        }
+
+        .tablar a.aktiv {
+            color: #0f1419;
+            box-shadow: inset 0 -4px 0 #1d9bf0;
+        }
+
+        .tvit {
+            display: flex;
+            gap: 12px;
+            padding: 12px 16px;
+            border-bottom: 1px solid #eff3f4;
+        }
+
+        .tvit-ich {
+            flex: 1;
+        }
+
+        .pin {
+            color: #536471;
+            font-size: 13px;
+            margin: 0 0 6px 52px;
+        }
+
+        .ism-qator b {
+            margin-right: 4px;
+        }
+
+        .matn {
+            margin: 6px 0 10px;
+            line-height: 1.4;
+            font-size: 15px;
+        }
+
+        .tvit-rasm {
+            width: 100%;
+            border-radius: 16px;
+            margin-top: 8px;
+            max-height: 320px;
+            object-fit: cover;
+            background: #d7e3ea;
+        }
+
+        .tugmalar {
+            display: flex;
+            justify-content: space-between;
+            max-width: 420px;
+            color: #536471;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .tugmalar div {
+            cursor: pointer;
+        }
+
+        .qizil {
+            color: #f91880;
+        }
+
+        .ong {
+            width: 350px;
+            padding: 8px 16px;
+        }
+
+        .qidiruv {
+            background: #eff3f4;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+        }
+
+        .qidiruv i {
+            color: #536471;
+            margin-right: 10px;
+        }
+
+        .qidiruv input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+            font-size: 15px;
+        }
+
+        .blok {
+            background: #f7f9f9;
+            border-radius: 16px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+        }
+
+        .blok h3 {
+            margin: 4px 0 12px;
+            font-size: 20px;
+        }
+
+        .odam {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .odam div {
+            flex: 1;
+        }
+
+        .odam p {
+            margin: 0;
+        }
+
+        .follow {
+            background: #0f1419;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .trend p {
+            margin: 2px 0;
+        }
+
+        .kop {
+            color: #1d9bf0;
+            text-decoration: none;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sahifa">
+
+        <div class="chap">
+            <img class="qush" src="50a005adf774baf026abf0bd326821757f2c1eff.png" alt="logo">
+            <div class="menu">
+                <a href="index2.html"><i class="fas fa-home"></i> Home</a>
+                <a href="#"><i class="fas fa-hashtag"></i> Explore</a>
+                <a href="#"><i class="far fa-bell"></i> Notifications</a>
+                <a href="#"><i class="far fa-envelope"></i> Messages</a>
+                <a href="#"><i class="far fa-bookmark"></i> Bookmarks</a>
+                <a href="#"><i class="fas fa-list-alt"></i> Lists</a>
+                <a href="index3.html" class="aktiv"><i class="far fa-user"></i> Profile</a>
+                <a href="#" onclick="chiqish(); return false;"><i class="fas fa-ellipsis-h"></i> More</a>
+            </div>
+            <button class="tweet-btn">Tweet</button>
+
+            <a class="past-profil" href="index3.html">
+                <img src="81d2ed4a6fa4b20a69987ae2b4ea2ed92fd045a6.png" alt="bobur">
+                <div>
+                    <b class="login-ism">Bobur</b>
+                    <span class="login-nick">@bobur_mavlonov</span>
+                </div>
+                <i class="fas fa-ellipsis-h"></i>
+            </a>
+        </div>
+
+        <div class="orta">
+            <div class="tepasi">
+                <a class="orqaga" href="index2.html"><i class="fas fa-arrow-left"></i></a>
+                <div>
+                    <h2>Bobur</h2>
+                    <div class="kulrang">1,070 Tweets</div>
+                </div>
+            </div>
+
+            <div class="banner">
+                <img src="banner.jpg" alt="Bobur Mavlonov banner">
+            </div>
+
+            <div class="profil-qator">
+                <img class="katta-ava" src="81d2ed4a6fa4b20a69987ae2b4ea2ed92fd045a6.png" alt="Bobur">
+                <button class="edit">Edit profile</button>
+                <h2 class="ism">Bobur Mavlonov</h2>
+                <p class="nick">@bobur_mavlonov</p>
+                <p class="bio">Web developer: <a href="#">@Ozodbek_Mamurov</a></p>
+                <p class="bio">UX/UI designer at <a href="#">@abutechuz</a></p>
+                <div class="meta">
+                    <span><i class="fas fa-map-marker-alt"></i> Mashag'daman</span>
+                    <span><i class="fas fa-link"></i> <a href="#">t.me/boburjon_mavlonov</a></span>
+                    <span><i class="fas fa-birthday-cake"></i> Born November 24, 2000</span>
+                    <span><i class="far fa-calendar-alt"></i> Joined May 2020</span>
+                </div>
+                <div class="stat">
+                    <b>67</b><span>Following</span>
+                    <b>47</b><span>Followers</span>
+                </div>
+            </div>
+
+            <div class="tablar">
+                <a href="#" class="aktiv">Tweets</a>
+                <a href="#">Tweets & replies</a>
+                <a href="#">Media</a>
+                <a href="#">Likes</a>
+            </div>
+
+            <p class="pin"><i class="fas fa-thumbtack"></i> Pinned Tweet</p>
+
+            <div class="tvit">
+                <img class="tvit-ava" src="81d2ed4a6fa4b20a69987ae2b4ea2ed92fd045a6.png" alt="">
+                <div class="tvit-ich">
+                    <div class="ism-qator">
+                        <b>Bobur</b>
+                        <span class="kulrang">@bobur_mavlonov · Apr 1</span>
+                    </div>
+                    <p class="matn">4-kursni tugatgunimcha kamida bitta biznesim bo'lishini, uylanish uchun moddiy jihatdan to'la-to'kis tayyor bo'lishni, sog'lik va jismoniy holatni normallashtirishni reja qildim</p>
+                    <div class="tugmalar">
+                        <div><i class="far fa-comment"></i> 10</div>
+                        <div><i class="fas fa-retweet"></i> 1</div>
+                        <div><i class="far fa-heart"></i> 8</div>
+                        <div><i class="fas fa-share"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tvit">
+                <img class="tvit-ava" src="81d2ed4a6fa4b20a69987ae2b4ea2ed92fd045a6.png" alt="">
+                <div class="tvit-ich">
+                    <div class="ism-qator">
+                        <b>Bobur</b>
+                        <span class="kulrang">@bobur_mavlonov · Apr 1</span>
+                    </div>
+                    <p class="matn">Bizda shunaqa bir illat bor: gap bo'lsa bo'ldi, nima deyayotganimizga qarab ham o'tirmaymiz.<br><br>Bitta biznes trener nito gapirib qo'ysa, hamma biznes trenerlar yomoniga chiqadi silshkom aqlli odamlar nazdida.<br><br>Gap faqat biznes trenerlar haqida emas.</p>
+                    <div class="tugmalar">
+                        <div><i class="far fa-comment"></i> 5</div>
+                        <div><i class="fas fa-retweet"></i></div>
+                        <div class="qizil"><i class="fas fa-heart"></i> 1</div>
+                        <div><i class="fas fa-share"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tvit">
+                <img class="tvit-ava" src="81d2ed4a6fa4b20a69987ae2b4ea2ed92fd045a6.png" alt="">
+                <div class="tvit-ich">
+                    <div class="ism-qator">
+                        <b>Bobur</b>
+                        <span class="kulrang">@bobur_mavlonov · Apr 1</span>
+                    </div>
+                    <p class="matn">A bo'pti maskaman</p>
+                    <img class="tvit-rasm" src="tvit-foto.jpg" alt="tvit rasmi">
+                    <div class="tugmalar">
+                        <div><i class="far fa-comment"></i> 10</div>
+                        <div><i class="fas fa-retweet"></i> 1</div>
+                        <div><i class="far fa-heart"></i> 8</div>
+                        <div><i class="fas fa-share"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ong">
+            <div class="qidiruv">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search Twitter">
+            </div>
+
+            <img class="kollaj" src="kollaj.jpg" alt="Media">
+
+            <div class="blok">
+                <h3>You might like</h3>
+                <div class="odam">
+                    <img src="f06b2a37195919eda9f0e4c6af8c8e8292c3c2b9.png" alt="Mushtariy">
+                    <div>
+                        <p><b>Mushtariy</b></p>
+                        <p class="kulrang">@Mushtar565266</p>
+                    </div>
+                    <button class="follow">Follow</button>
+                </div>
+                <div class="odam">
+                    <img src="178a89ef801f8582955545c08f5181c2051a05d4.png" alt="Shuhratbek">
+                    <div>
+                        <p><b>Shuhratbek</b></p>
+                        <p class="kulrang">@mrshukhrat</p>
+                    </div>
+                    <button class="follow">Follow</button>
+                </div>
+                <a class="kop" href="#">Show more</a>
+            </div>
+
+            <div class="blok">
+                <h3>Trends for you</h3>
+                <div class="trend">
+                    <p class="kulrang">Trending in Germany</p>
+                    <p><b>Revolution</b></p>
+                    <p class="kulrang">50.4K Tweets</p>
+                </div>
+                <div class="trend">
+                    <p class="kulrang">Trending in Germany</p>
+                    <p><b>Revolution</b></p>
+                    <p class="kulrang">50.4K Tweets</p>
+                </div>
+                <div class="trend">
+                    <p class="kulrang">Trending in Germany</p>
+                    <p><b>Revolution</b></p>
+                    <p class="kulrang">50.4K Tweets</p>
+                </div>
+                <a class="kop" href="#">Show more</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

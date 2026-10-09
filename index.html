@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sayt</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: rgb(215, 215, 215);
+            margin: 0;
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;-
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 750px;
+            background-color: #ffffff;
+            padding: 40px 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            width: 40px;
+            height: auto;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0f1419;
+            margin: 0 0 30px 0;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f1419;
+            margin: 25px 0 10px 0;
+        }
+
+        .input {
+            width: 100%;
+            height: 60px;
+            border: 1px solid #cfd9de;
+            border-radius: 4px;
+            padding: 16px;
+            font-size: 17px;
+            margin-bottom: 25px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input :focus {
+            border: 2px solid #1d9bf0;
+            padding: 15px;
+        }
+
+        .link-text {
+            color: #1d9bf0;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .link-text:hover {
+            text-decoration: underline;
+        }
+
+        .a1 {
+            color: #536471;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 0 0 25px 0;
+        }
+
+        .dob-container {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .dob-select {
+            height: 60px;
+            border: 1px solid #cfd9de;
+            border-radius: 4px;
+            padding: 0 16px;
+            font-size: 16px;
+            color: #536471;
+            outline: none;
+            background-color: #fff;
+            cursor: pointer;
+            appearance: none;
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+        }
+
+        .month-select { flex: 2; }
+        .day-select { flex: 1; }
+        .year-select { flex: 1; }
+
+        .next-btn {
+            width: 100%;
+            height: 52px;
+            background-color: #1d9bf0;
+            color: #ffffff;
+            border: none;
+            border-radius: 26px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .next-btn:hover {
+            background-color: #1a8cd8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="50a005adf774baf026abf0bd326821757f2c1eff.png" alt="logo" id="qush">
+        </div>
+
+        <h2>Create an account</h2>
+
+        <input type="text" class="input" id="ism" placeholder="Name">
+        <input type="password" class="input" id="parol" placeholder="Password">
+        <input type="text" class="input" id="tel" placeholder="Phone number">
+
+        <div class="link-text">Use email</div>
+
+        <h3>Date of birth</h3>
+        <p class="a1">
+            Facilisi sem pulvinar velit nunc, gravida scelerisque amet nibh sit. Quis bibendum ante 
+            phasellus metus, magna lacinia sed augue. Odio enim nascetur leo mauris vel eget. Pretium id 
+            ullamcorper blandit viverra dignissim eget tellus. Nibh mi massa in molestie a sit. Elit congue.
+        </p>
+
+        <div class="dob-container">
+            <select class="dob-select month-select">
+                <option value="" disabled selected hidden>Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+
+            <select class="dob-select day-select">
+                <option value="" disabled selected hidden>Day</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30 </option>
+                <option value="31">31</option>
+            </select>
+
+            <select class="dob-select year-select">
+                <option value="" disabled selected hidden>Year</option>
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+                <option value="2007">2007</option>
+                <option value="2006">2006</option>
+                <option value="2005">2005</option>
+                <option value="2004">2004</option>
+                <option value="2003">2003</option>
+                <option value="2002">2002</option>
+                <option value="2001">2001</option>
+                <option value="2000">2000</option>
+            </select>
+        </div>
+
+        <button class="next-btn" onclick="royxatdanOt()">Next</button>
+        <p class="a1" style="margin-top: 18px;">Hisobingiz bormi? <a class="link-text" href="index1.html">Log in</a></p>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
